@@ -1,4 +1,5 @@
 import pika
+import json
 
 
 class RabbitmqConsumer:
@@ -42,7 +43,7 @@ class RabbitmqConsumer:
 
 
 def callback_(ch, method, properties, body):
-    print(body)
+    print(json.loads(body))
 
 
 consumer = RabbitmqConsumer(callback_)
